@@ -20,6 +20,9 @@ public class Cliente {
     private DadosPessoais dadosPessoais;
 
     public Cliente(String nome, String cpf, String telefone, LocalDate dataNasc) {
-        new DadosPessoais(nome, cpf, telefone, dataNasc);
+
+        this.dadosPessoais = new DadosPessoais(nome, cpf, telefone, dataNasc);
+
     }
+
 }

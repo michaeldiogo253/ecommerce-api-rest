@@ -50,9 +50,7 @@ public class CategoriaService {
     public ResponseEntity<?> alterarCategoria(Long id, CategoriaRequest request) {
         Optional<Categoria> categoriaBuscada = categoriaRepository.findById(id);
         if (categoriaBuscada.isPresent()) {
-            System.out.println("entrou no if");
             categoriaBuscada.get().alteraNomeCategoria(request.getNome());
-            System.out.println("nome alterado =" + categoriaBuscada.get().getNome());
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Categoria não encontrada");
