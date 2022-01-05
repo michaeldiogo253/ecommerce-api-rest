@@ -23,7 +23,7 @@ public class Pedido {
     private BigDecimal valorTotal;
     private LocalDate dataFechamento = LocalDate.now();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido", cascade = CascadeType.ALL)
