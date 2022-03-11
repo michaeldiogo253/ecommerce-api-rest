@@ -2,15 +2,19 @@ package estudos.ecommerce.controller;
 
 import estudos.ecommerce.controller.request.ClienteRequest;
 import estudos.ecommerce.controller.response.ClienteResponse;
+import estudos.ecommerce.model.Cliente;
 import estudos.ecommerce.service.ClienteService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,35 +23,51 @@ public class ClienteController {
 
     private final ClienteService clienteService;
 
-    @Transactional
     @PostMapping()
-    public ResponseEntity<ClienteResponse> cadastrarCliente(
-            @RequestBody @Valid ClienteRequest request, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<ClienteResponse> cadastrarCliente(@RequestBody @Valid ClienteRequest request, UriComponentsBuilder uriBuilder) {
 
-        return clienteService.cadastrarCliente(request, uriBuilder);
+        Cliente clienteSalvo = clienteService.cadastrarCliente(request);
+        URI uri = uriBuilder.path("ecommerce-api/cliente/{id}")
+                            .buildAndExpand(clienteSalvo.getId())
+                            .toUri();
+
+        return ResponseEntity.created(uri)
+                             .body(new ClienteResponse(clienteSalvo));
+
     }
 
-    @Transactional
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarClientePorId(@PathVariable Long id) {
-        return clienteService.buscarClientePorId(id);
+
+        Optional<Cliente> clienteBuscado = clienteService.buscarClientePorId(id);
+        if (clienteBuscado.isPresent()) {
+            return ResponseEntity.ok()
+                                 .body(new ClienteResponse(clienteBuscado.get()));
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                             .body("Cliente não encontrado");
+
     }
 
-    @Transactional
     @GetMapping("/listar-todos")
     public ResponseEntity<List<ClienteResponse>> listarTodosOsClientes() {
-        return clienteService.listarTodosOsClientes();
+
+        List<Cliente> clientes = clienteService.listarTodosOsClientes();
+        List<ClienteResponse> clientesResponse = ClienteResponse.from(clientes);
+
+        return ResponseEntity.ok()
+                             .body(clientesResponse);
     }
 
-    @Transactional
     @PutMapping("/{id}")
-    public ResponseEntity<?> atualizarClientePorId(@PathVariable Long id, @RequestBody ClienteRequest request){
-        return clienteService.atualizarClientePorId(id , request);
+    public ResponseEntity<?> atualizarClientePorId(@PathVariable Long id, @RequestBody ClienteRequest request) {
+
+        return clienteService.atualizarClientePorId(id, request);
     }
 
-    @Transactional
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletarClientePorId(@PathVariable Long id){
+    public ResponseEntity<Void> deletarClientePorId(@PathVariable Long id) {
+
         return clienteService.deletarClientePorId(id);
     }
 }
