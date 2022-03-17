@@ -15,13 +15,13 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class CarrinhoService {
 
     private final CarrinhoRepository carrinhoRepository;
     private final ClienteRepository clienteRepository;
     private final ItemDoCarrinhoService itemDoCarrinhoService;
 
-    @Transactional
     public Carrinho adicionaProdutoNoCarrinho(CarrinhoRequest request) {
 
         Optional<Carrinho> carrinhoBuscado = carrinhoRepository.findByIdCliente(request.getIdCliente());
@@ -37,7 +37,6 @@ public class CarrinhoService {
         return criaNovoCarrinhoEAdicionaProduto(request);
     }
 
-    @Transactional
     private Carrinho adicionaProdutoEmCarrinhoExistente(Carrinho carrinhoBuscado,
                                                         ItemDoCarrinho itemDoCarrinho,
                                                         Integer quantidade) {
@@ -47,7 +46,6 @@ public class CarrinhoService {
         return carrinhoBuscado;
     }
 
-    @Transactional
     private Carrinho criaNovoCarrinhoEAdicionaProduto(CarrinhoRequest request) {
 
         Cliente cliente = clienteRepository.findById(request.getIdCliente())
@@ -62,17 +60,32 @@ public class CarrinhoService {
         return novoCarrinho;
     }
 
-    @Transactional
     public void removeProdutoDoCarrinho(CarrinhoRequest request) {
 
         Carrinho carrinhoBuscado = carrinhoRepository.findByIdCliente(request.getIdCliente())
                                                      .orElseThrow(() -> new ResourceNotFoundException(
                                                              "Carrinho não encontrado"));
 
-        itemDoCarrinhoService.removeProdutoCarrinho(carrinhoBuscado, request.getIdProduto(), request.getQuantidade());
+        ItemDoCarrinho itemDoCarrinho = itemDoCarrinhoService.removeProdutoCarrinho(carrinhoBuscado,
+                                                                                    request.getIdProduto(),
+                                                                                    request.getQuantidade());
+        if (verificaSePrecisaDeletarItemCarrinho(itemDoCarrinho)) {
+            carrinhoBuscado.removeItemDoCarrinho(itemDoCarrinho);
+        }
         carrinhoBuscado.atualizaTotaisDoCarrinho();
         carrinhoRepository.save(carrinhoBuscado);
-
     }
 
+    public boolean verificaSePrecisaDeletarItemCarrinho(ItemDoCarrinho itemDoCarrinho) {
+
+        return itemDoCarrinho.getQuantidade() == 0;
+    }
+
+    public void listarItensDoCarrinho(Long idCarrinho) {
+
+        Optional<Carrinho> carrinho = carrinhoRepository.findById(idCarrinho);
+
+       carrinho.get().getCarrinho().get(0);
+
+    }
 }

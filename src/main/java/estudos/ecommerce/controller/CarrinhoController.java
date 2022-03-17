@@ -5,10 +5,7 @@ import estudos.ecommerce.service.CarrinhoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -32,6 +29,12 @@ public class CarrinhoController {
     public ResponseEntity<Void> removerProdutoDoCarrinho(@RequestBody @Valid CarrinhoRequest request){
         carrinhoService.removeProdutoDoCarrinho(request);
 
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/listar-itens-do-carrinho/{idCliente}")
+    public ResponseEntity<Void> listarItensDoCarrinho(@PathVariable Long idCliente){
+        carrinhoService.listarItensDoCarrinho(idCliente);
         return ResponseEntity.ok().build();
     }
 

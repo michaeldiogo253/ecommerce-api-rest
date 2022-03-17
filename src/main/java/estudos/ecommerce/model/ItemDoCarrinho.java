@@ -16,8 +16,8 @@ public class ItemDoCarrinho {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
 
     @ManyToOne private Produto produto;
-    private Integer quantidade = 0;
-    private BigDecimal valorTotalDosItens = BigDecimal.ZERO;
+    private Integer quantidade;
+    private BigDecimal valorTotalDosItens;
 
     @ManyToOne private Carrinho carrinho;
 

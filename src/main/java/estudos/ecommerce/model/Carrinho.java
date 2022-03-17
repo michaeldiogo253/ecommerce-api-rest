@@ -20,7 +20,7 @@ public class Carrinho {
     @OneToOne private Cliente cliente;
 
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL,
-               orphanRemoval = true, fetch = FetchType.EAGER) private List<ItemDoCarrinho> carrinho = new ArrayList<>();
+               orphanRemoval = true) private List<ItemDoCarrinho> carrinho = new ArrayList<>();
 
     private BigDecimal total = new BigDecimal(0);
 
@@ -45,16 +45,20 @@ public class Carrinho {
         atualizaTotaisDoCarrinho();
     }
 
-    public void removeItemDoCarrinho(ItemDoCarrinho item){
-        carrinho.removeIf(itemDoCarrinho -> itemDoCarrinho.equals(item));
-        atualizaTotaisDoCarrinho();
+    public void removeItemDoCarrinho(ItemDoCarrinho item) {
 
+        carrinho.removeIf(itemDoCarrinho -> itemDoCarrinho.equals(item));
     }
 
     public void atualizaTotaisDoCarrinho() {
 
-        total = carrinho.stream().map(ItemDoCarrinho::getValorTotalDosItens).reduce(BigDecimal.ZERO, BigDecimal::add);
-        this.quantidadeTotalItensCarrinho = carrinho.stream().map(ItemDoCarrinho::getQuantidade).reduce(0, Integer::sum);
+        total = carrinho.stream()
+                        .map(ItemDoCarrinho::getValorTotalDosItens)
+                        .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        this.quantidadeTotalItensCarrinho = carrinho.stream()
+                                                    .map(ItemDoCarrinho::getQuantidade)
+                                                    .reduce(0, Integer::sum);
 
     }
 

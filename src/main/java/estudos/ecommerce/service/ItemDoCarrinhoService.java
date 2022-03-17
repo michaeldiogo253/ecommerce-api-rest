@@ -50,7 +50,7 @@ public class ItemDoCarrinhoService {
     }
 
 
-    public void removeProdutoCarrinho(Carrinho carrinho, Long idProduto, Integer quantidade) {
+    public ItemDoCarrinho removeProdutoCarrinho(Carrinho carrinho, Long idProduto, Integer quantidade) {
 
         ItemDoCarrinho itemDoCarrinhoBuscado = itemDoCarrinhoRepository.findItemCarrinhoByIdCarrinhoAndIdProduto(
                                                                                carrinho.getId(),
@@ -65,13 +65,8 @@ public class ItemDoCarrinhoService {
         }
 
         itemDoCarrinhoBuscado.subtraiQuantidade(quantidade);
-
-        if (seQuantidadeChegouAZeroDeletaDoCarrinho(itemDoCarrinhoBuscado)) {
-            itemDoCarrinhoRepository.delete(itemDoCarrinhoBuscado);
-            return;
-        }
-
         itemDoCarrinhoRepository.save(itemDoCarrinhoBuscado);
+        return itemDoCarrinhoBuscado;
 
     }
 
@@ -84,8 +79,4 @@ public class ItemDoCarrinhoService {
         return false;
     }
 
-    public boolean seQuantidadeChegouAZeroDeletaDoCarrinho(ItemDoCarrinho itemDoCarrinho) {
-
-        return itemDoCarrinho.getQuantidade() == 0;
-    }
 }
