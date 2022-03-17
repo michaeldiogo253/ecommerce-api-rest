@@ -3,6 +3,7 @@ package estudos.ecommerce.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Embedded
     private DadosPessoais dadosPessoais;
 
@@ -25,4 +27,9 @@ public class Cliente {
 
     }
 
+    @Override
+    public String toString() {
+
+        return "Cliente{" + "id=" + id + ", dadosPessoais=" + dadosPessoais + '}';
+    }
 }
