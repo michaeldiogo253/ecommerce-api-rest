@@ -1,4 +1,4 @@
-package estudos.ecommerce.model;
+package estudos.ecommerce.cliente.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Embeddable
 public class DadosPessoais {
+
     private String nome;
     private String cpf;
     private String telefone;

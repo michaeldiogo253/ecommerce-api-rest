@@ -1,6 +1,6 @@
 package estudos.ecommerce.repository;
 
-import estudos.ecommerce.model.ItemDoCarrinho;
+import estudos.ecommerce.carrinho.domain.ItemDoCarrinho;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
