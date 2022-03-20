@@ -1,10 +1,10 @@
 package estudos.ecommerce.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import estudos.ecommerce.controller.request.ClienteRequest;
+import estudos.ecommerce.cliente.adapter.in.web.request.ClienteRequest;
 import estudos.ecommerce.controller.response.ClienteResponse;
 import estudos.ecommerce.databuilders.ClienteCreator;
-import estudos.ecommerce.model.Cliente;
+import estudos.ecommerce.cliente.domain.Cliente;
 import estudos.ecommerce.service.ClienteService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

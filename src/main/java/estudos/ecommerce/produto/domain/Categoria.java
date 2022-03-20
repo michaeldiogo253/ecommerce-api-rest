@@ -1,4 +1,4 @@
-package estudos.ecommerce.model;
+package estudos.ecommerce.produto.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

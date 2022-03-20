@@ -1,13 +1,11 @@
 package estudos.ecommerce.databuilders;
 
 import com.github.javafaker.Faker;
-import estudos.ecommerce.controller.response.ClienteResponse;
-import estudos.ecommerce.model.Cliente;
+import estudos.ecommerce.cliente.domain.Cliente;
 
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

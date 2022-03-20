@@ -1,10 +1,10 @@
 package estudos.ecommerce.service;
 
-import estudos.ecommerce.exception.BussinessRuleException;
-import estudos.ecommerce.exception.ResourceNotFoundException;
-import estudos.ecommerce.model.Carrinho;
-import estudos.ecommerce.model.ItemDoCarrinho;
-import estudos.ecommerce.model.Produto;
+import estudos.ecommerce.util.exception.BussinessRuleException;
+import estudos.ecommerce.util.exception.ResourceNotFoundException;
+import estudos.ecommerce.carrinho.domain.Carrinho;
+import estudos.ecommerce.carrinho.domain.ItemDoCarrinho;
+import estudos.ecommerce.produto.domain.Produto;
 import estudos.ecommerce.repository.CarrinhoRepository;
 import estudos.ecommerce.repository.ItemDoCarrinhoRepository;
 import estudos.ecommerce.repository.ProdutoRepository;
