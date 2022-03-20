@@ -1,8 +1,8 @@
 package estudos.ecommerce.service;
 
 import estudos.ecommerce.controller.request.ProdutoRequest;
-import estudos.ecommerce.model.Categoria;
-import estudos.ecommerce.model.Produto;
+import estudos.ecommerce.produto.domain.Categoria;
+import estudos.ecommerce.produto.domain.Produto;
 import estudos.ecommerce.repository.CategoriaRepository;
 import estudos.ecommerce.repository.ProdutoRepository;
 import lombok.RequiredArgsConstructor;

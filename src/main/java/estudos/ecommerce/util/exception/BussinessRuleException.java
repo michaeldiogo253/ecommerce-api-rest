@@ -1,4 +1,4 @@
-package estudos.ecommerce.exception;
+package estudos.ecommerce.util.exception;
 
 public class BussinessRuleException extends RuntimeException {
 
