@@ -3,7 +3,7 @@ package estudos.ecommerce.cliente.adapter.out.persistence;
 import estudos.ecommerce.cliente.application.port.out.DeleteClienteByIdPort;
 import estudos.ecommerce.cliente.application.port.out.FindAllClientesPort;
 import estudos.ecommerce.cliente.application.port.out.FindClienteByIdPort;
-import estudos.ecommerce.cliente.application.port.out.SalvarClientePort;
+import estudos.ecommerce.cliente.application.port.out.SaveClientePort;
 import estudos.ecommerce.cliente.domain.Cliente;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ClientePersistenceAdapter
-        implements SalvarClientePort, FindAllClientesPort, FindClienteByIdPort, DeleteClienteByIdPort {
+        implements SaveClientePort, FindAllClientesPort, FindClienteByIdPort, DeleteClienteByIdPort {
 
     private final ClienteRepository clienteRepository;
 
