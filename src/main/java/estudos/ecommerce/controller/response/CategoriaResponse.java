@@ -1,6 +1,6 @@
 package estudos.ecommerce.controller.response;
 
-import estudos.ecommerce.produto.domain.Categoria;
+import estudos.ecommerce.categoria.domain.Categoria;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

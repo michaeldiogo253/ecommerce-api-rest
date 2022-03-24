@@ -1,6 +1,6 @@
-package estudos.ecommerce.repository;
+package estudos.ecommerce.categoria.adapter.out.persistence;
 
-import estudos.ecommerce.produto.domain.Categoria;
+import estudos.ecommerce.categoria.domain.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;

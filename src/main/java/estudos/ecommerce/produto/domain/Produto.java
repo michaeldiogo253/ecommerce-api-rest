@@ -1,6 +1,6 @@
 package estudos.ecommerce.produto.domain;
 
-import estudos.ecommerce.controller.request.ProdutoRequest;
+import estudos.ecommerce.categoria.domain.Categoria;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,8 +32,24 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public static Produto from(ProdutoRequest request, Categoria categoria) {
+    public Produto(String nome, String descricao, BigDecimal preco) {
 
-        return new Produto(request.getNome(), request.getDescricao(), request.getPreco(), categoria);
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+
     }
+
+    public String getNomeCategoria() {
+
+        return this.categoria.getNome();
+    }
+
+    public void atualizaDadosDoProduto(String nome, String descricao, BigDecimal preco) {
+
+        this.nome = nome;
+        this.descricao = descricao;
+        this.preco = preco;
+    }
+
 }
