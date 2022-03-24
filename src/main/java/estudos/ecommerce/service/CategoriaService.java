@@ -2,8 +2,8 @@ package estudos.ecommerce.service;
 
 import estudos.ecommerce.controller.request.CategoriaRequest;
 import estudos.ecommerce.controller.response.CategoriaResponse;
-import estudos.ecommerce.produto.domain.Categoria;
-import estudos.ecommerce.repository.CategoriaRepository;
+import estudos.ecommerce.categoria.domain.Categoria;
+import estudos.ecommerce.categoria.adapter.out.persistence.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

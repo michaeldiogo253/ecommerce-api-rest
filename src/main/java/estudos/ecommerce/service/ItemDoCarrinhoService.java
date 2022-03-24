@@ -7,7 +7,7 @@ import estudos.ecommerce.carrinho.domain.ItemDoCarrinho;
 import estudos.ecommerce.produto.domain.Produto;
 import estudos.ecommerce.repository.CarrinhoRepository;
 import estudos.ecommerce.repository.ItemDoCarrinhoRepository;
-import estudos.ecommerce.repository.ProdutoRepository;
+import estudos.ecommerce.produto.adapter.out.persistence.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
