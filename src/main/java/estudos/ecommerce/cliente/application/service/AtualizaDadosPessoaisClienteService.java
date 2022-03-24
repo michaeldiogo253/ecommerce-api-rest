@@ -1,8 +1,8 @@
-package estudos.ecommerce.cliente.application.port;
+package estudos.ecommerce.cliente.application.service;
 
 import estudos.ecommerce.cliente.application.port.in.AtualizaDadosPessoaisClienteUseCase;
 import estudos.ecommerce.cliente.application.port.out.FindClienteByIdPort;
-import estudos.ecommerce.cliente.application.port.out.SalvarClientePort;
+import estudos.ecommerce.cliente.application.port.out.SaveClientePort;
 import estudos.ecommerce.cliente.domain.Cliente;
 import estudos.ecommerce.cliente.domain.DadosPessoais;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +17,7 @@ import javax.transaction.Transactional;
 public class AtualizaDadosPessoaisClienteService implements AtualizaDadosPessoaisClienteUseCase {
 
     private final FindClienteByIdPort findClienteByIdPort;
-    private final SalvarClientePort salvarClientePort;
+    private final SaveClientePort salvarClientePort;
 
     @Override
     public Cliente execute(Long idCliente, DadosPessoais dadosPessoais) {

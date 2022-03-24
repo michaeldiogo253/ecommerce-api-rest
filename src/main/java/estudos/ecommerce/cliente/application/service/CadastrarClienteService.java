@@ -1,7 +1,7 @@
-package estudos.ecommerce.cliente.application.port;
+package estudos.ecommerce.cliente.application.service;
 
 import estudos.ecommerce.cliente.application.port.in.CadastrarClienteUseCase;
-import estudos.ecommerce.cliente.application.port.out.SalvarClientePort;
+import estudos.ecommerce.cliente.application.port.out.SaveClientePort;
 import estudos.ecommerce.cliente.domain.Cliente;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor
 public class CadastrarClienteService implements CadastrarClienteUseCase {
 
-    private final SalvarClientePort salvarClientePort;
+    private final SaveClientePort salvarClientePort;
 
     @Override
     public Cliente execute(Cliente cliente) {

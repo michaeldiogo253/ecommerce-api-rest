@@ -1,4 +1,4 @@
-package estudos.ecommerce.cliente.application.port;
+package estudos.ecommerce.cliente.application.service;
 
 import estudos.ecommerce.cliente.application.port.in.DeletarClientePorIdUseCase;
 import estudos.ecommerce.cliente.application.port.out.DeleteClienteByIdPort;
