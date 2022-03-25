@@ -1,4 +1,4 @@
-package estudos.ecommerce.controller.request;
+package estudos.ecommerce.categoria.adapter.in.web.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
