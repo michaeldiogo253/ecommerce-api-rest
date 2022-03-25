@@ -1,6 +1,6 @@
 package estudos.ecommerce.controller;
 
-import estudos.ecommerce.controller.request.CarrinhoRequest;
+import estudos.ecommerce.carrinho.adapter.in.web.request.CarrinhoRequest;
 import estudos.ecommerce.service.CarrinhoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
