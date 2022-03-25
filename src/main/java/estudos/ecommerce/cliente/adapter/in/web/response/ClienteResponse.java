@@ -1,31 +1,33 @@
 package estudos.ecommerce.cliente.adapter.in.web.response;
 
 import estudos.ecommerce.cliente.domain.Cliente;
-import estudos.ecommerce.util.data.ConversorDeDatas;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Value
+@AllArgsConstructor
+@Getter
+@Setter
 public class ClienteResponse {
-
-    String nome;
-    String cpf;
-    String telefone;
-    String dataNasc;
+    private Long id;
+    private String nome;
+    private String cpf;
+    private String telefone;
+    private LocalDate dataNasc;
 
     public ClienteResponse(Cliente cliente) {
-
-        this.nome = cliente.getNome();
-        this.cpf = cliente.getCpf();
-        this.telefone = cliente.getTelefone();
-        this.dataNasc = ConversorDeDatas.converteLocalDateParaString(cliente.getDataNascimento());
+        this.id = cliente.getId();
+        this.nome = cliente.getDadosPessoais().getNome();
+        this.cpf = cliente.getDadosPessoais().getCpf();
+        this.telefone = cliente.getDadosPessoais().getTelefone();
+        this.dataNasc = cliente.getDadosPessoais().getDataNasc();
     }
 
-    public static List<ClienteResponse> from (List<Cliente> clientes){
-
+    public static List<ClienteResponse> from(List<Cliente> clientes) {
         return clientes.stream().map(ClienteResponse::new).collect(Collectors.toList());
-
     }
 }

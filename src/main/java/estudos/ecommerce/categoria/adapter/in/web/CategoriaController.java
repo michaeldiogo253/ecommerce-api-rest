@@ -1,7 +1,7 @@
-package estudos.ecommerce.controller;
+package estudos.ecommerce.categoria.adapter.in.web;
 
-import estudos.ecommerce.controller.request.CategoriaRequest;
-import estudos.ecommerce.controller.response.CategoriaResponse;
+import estudos.ecommerce.categoria.adapter.in.web.request.CategoriaRequest;
+import estudos.ecommerce.categoria.adapter.in.web.response.CategoriaResponse;
 import estudos.ecommerce.service.CategoriaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

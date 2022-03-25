@@ -1,4 +1,4 @@
-package estudos.ecommerce.repository;
+package estudos.ecommerce.carrinho.adapter.out.persistence;
 
 import estudos.ecommerce.carrinho.domain.Carrinho;
 import org.springframework.data.jpa.repository.JpaRepository;

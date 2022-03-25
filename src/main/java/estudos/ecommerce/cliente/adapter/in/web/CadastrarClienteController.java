@@ -3,7 +3,7 @@ package estudos.ecommerce.cliente.adapter.in.web;
 import estudos.ecommerce.cliente.adapter.in.web.request.ClienteRequest;
 import estudos.ecommerce.cliente.application.port.in.CadastrarClienteUseCase;
 import estudos.ecommerce.cliente.domain.Cliente;
-import estudos.ecommerce.controller.response.ClienteResponse;
+import estudos.ecommerce.cliente.adapter.in.web.response.ClienteResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

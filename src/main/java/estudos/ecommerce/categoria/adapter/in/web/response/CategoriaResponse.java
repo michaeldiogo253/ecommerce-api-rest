@@ -1,4 +1,4 @@
-package estudos.ecommerce.controller.response;
+package estudos.ecommerce.categoria.adapter.in.web.response;
 
 import estudos.ecommerce.categoria.domain.Categoria;
 import lombok.AllArgsConstructor;

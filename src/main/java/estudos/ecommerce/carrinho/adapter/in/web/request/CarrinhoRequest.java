@@ -1,4 +1,4 @@
-package estudos.ecommerce.controller.request;
+package estudos.ecommerce.carrinho.adapter.in.web.request;
 
 import lombok.Value;
 
