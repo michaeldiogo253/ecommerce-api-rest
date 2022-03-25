@@ -1,11 +1,11 @@
 package estudos.ecommerce.service;
 
-import estudos.ecommerce.controller.request.CarrinhoRequest;
+import estudos.ecommerce.carrinho.adapter.in.web.request.CarrinhoRequest;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import estudos.ecommerce.carrinho.domain.Carrinho;
 import estudos.ecommerce.cliente.domain.Cliente;
 import estudos.ecommerce.carrinho.domain.ItemDoCarrinho;
-import estudos.ecommerce.repository.CarrinhoRepository;
+import estudos.ecommerce.carrinho.adapter.out.persistence.CarrinhoRepository;
 import estudos.ecommerce.cliente.adapter.out.persistence.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
