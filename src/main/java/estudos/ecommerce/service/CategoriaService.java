@@ -1,7 +1,7 @@
 package estudos.ecommerce.service;
 
-import estudos.ecommerce.controller.request.CategoriaRequest;
-import estudos.ecommerce.controller.response.CategoriaResponse;
+import estudos.ecommerce.categoria.adapter.in.web.request.CategoriaRequest;
+import estudos.ecommerce.categoria.adapter.in.web.response.CategoriaResponse;
 import estudos.ecommerce.categoria.domain.Categoria;
 import estudos.ecommerce.categoria.adapter.out.persistence.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
