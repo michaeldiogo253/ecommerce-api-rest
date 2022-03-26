@@ -3,10 +3,10 @@ package estudos.ecommerce.service;
 import estudos.ecommerce.util.exception.BussinessRuleException;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import estudos.ecommerce.carrinho.domain.Carrinho;
-import estudos.ecommerce.carrinho.domain.ItemDoCarrinho;
+import estudos.ecommerce.itemdocarrinho.domain.ItemDoCarrinho;
 import estudos.ecommerce.produto.domain.Produto;
 import estudos.ecommerce.carrinho.adapter.out.persistence.CarrinhoRepository;
-import estudos.ecommerce.carrinho.adapter.out.persistence.ItemDoCarrinhoRepository;
+import estudos.ecommerce.itemdocarrinho.adapter.out.persistence.ItemDoCarrinhoRepository;
 import estudos.ecommerce.produto.adapter.out.persistence.ProdutoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,7 +42,7 @@ public class ItemDoCarrinhoService {
     public ItemDoCarrinho criaNovoItemDoCarrinho(Long idProduto, Integer quantidade, Carrinho carrinho) {
 
         Produto produto = produtoRepository.findById(idProduto)
-                                           .orElseThrow(() -> new IllegalArgumentException("Produto não encntrado"));
+                                           .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
 
         ItemDoCarrinho itemDoCarrinho = new ItemDoCarrinho(produto, quantidade, carrinho);
         itemDoCarrinhoRepository.save(itemDoCarrinho);
