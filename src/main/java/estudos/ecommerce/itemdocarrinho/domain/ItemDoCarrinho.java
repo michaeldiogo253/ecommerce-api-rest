@@ -1,4 +1,4 @@
-package estudos.ecommerce.carrinho.domain;
+package estudos.ecommerce.itemdocarrinho.domain;
 
 import estudos.ecommerce.carrinho.domain.Carrinho;
 import estudos.ecommerce.produto.domain.Produto;
