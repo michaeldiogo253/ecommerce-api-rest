@@ -4,7 +4,7 @@ import estudos.ecommerce.carrinho.adapter.in.web.request.CarrinhoRequest;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import estudos.ecommerce.carrinho.domain.Carrinho;
 import estudos.ecommerce.cliente.domain.Cliente;
-import estudos.ecommerce.carrinho.domain.ItemDoCarrinho;
+import estudos.ecommerce.itemdocarrinho.domain.ItemDoCarrinho;
 import estudos.ecommerce.carrinho.adapter.out.persistence.CarrinhoRepository;
 import estudos.ecommerce.cliente.adapter.out.persistence.ClienteRepository;
 import lombok.RequiredArgsConstructor;

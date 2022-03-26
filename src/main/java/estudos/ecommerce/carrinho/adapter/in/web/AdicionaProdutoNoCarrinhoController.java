@@ -1,9 +1,8 @@
 package estudos.ecommerce.carrinho.adapter.in.web;
 
 import estudos.ecommerce.carrinho.adapter.in.web.request.CarrinhoRequest;
-import estudos.ecommerce.carrinho.application.port.in.AdicionarProdutoNoCarrinhoUseCase;
+import estudos.ecommerce.carrinho.application.port.in.AdicionaProdutoNoCarrinhoUseCase;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AdicionaProdutoNoCarrinhoController {
 
-   private final AdicionarProdutoNoCarrinhoUseCase adicionarProdutoNoCarrinhoUseCase;
+   private final AdicionaProdutoNoCarrinhoUseCase adicionarProdutoNoCarrinhoUseCase;
 
    @PostMapping("/adicionar-produto-no-carrinho/")
     public ResponseEntity<Void> adicionaProdutoNoCarrinho(@RequestBody @Valid CarrinhoRequest request){
