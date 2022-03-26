@@ -1,6 +1,7 @@
 package estudos.ecommerce.carrinho.domain;
 
 import estudos.ecommerce.cliente.domain.Cliente;
+import estudos.ecommerce.itemdocarrinho.domain.ItemDoCarrinho;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
