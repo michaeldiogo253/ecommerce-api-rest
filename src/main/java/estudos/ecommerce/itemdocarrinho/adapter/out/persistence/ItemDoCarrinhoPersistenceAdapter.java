@@ -1,5 +1,6 @@
 package estudos.ecommerce.itemdocarrinho.adapter.out.persistence;
 
+import estudos.ecommerce.itemdocarrinho.application.port.out.FindItemCarrinhoByIdCarrinhoAndIdProdutoPort;
 import estudos.ecommerce.itemdocarrinho.application.port.out.FindItemCarrinhoByIdItemAndProdutoIdPort;
 import estudos.ecommerce.itemdocarrinho.application.port.out.SaveItemCarrinhoPort;
 import estudos.ecommerce.itemdocarrinho.domain.ItemDoCarrinho;
@@ -14,12 +15,13 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ItemDoCarrinhoPersistenceAdapter implements FindItemCarrinhoByIdItemAndProdutoIdPort,
-                                                         SaveItemCarrinhoPort {
+                                                         SaveItemCarrinhoPort ,
+                                                         FindItemCarrinhoByIdCarrinhoAndIdProdutoPort {
 
     private final ItemDoCarrinhoRepository itemDoCarrinhoRepository;
 
     @Override
-    public Optional<ItemDoCarrinho> findItemCarrinhoByIdItemAndProdutoIdPort(Long idItemCarrinho, Long idProduto) {
+    public Optional<ItemDoCarrinho> findItemCarrinhoByIdItemAndProdutoId(Long idItemCarrinho, Long idProduto) {
 
         return itemDoCarrinhoRepository.findItemCarrinhoByIdCarrinhoAndIdProduto(idItemCarrinho, idProduto);
 
@@ -29,5 +31,11 @@ public class ItemDoCarrinhoPersistenceAdapter implements FindItemCarrinhoByIdIte
     public ItemDoCarrinho salvaItemNoCarrinho(ItemDoCarrinho itemDoCarrinho) {
 
        return  itemDoCarrinhoRepository.save(itemDoCarrinho);
+    }
+
+    @Override
+    public Optional<ItemDoCarrinho> findItemCarrinhoByIdCarrinhoAndIdProduto(Long idCarrinho, Long idProduto) {
+
+        return itemDoCarrinhoRepository.findItemCarrinhoByIdCarrinhoAndIdProduto(idCarrinho, idProduto);
     }
 }

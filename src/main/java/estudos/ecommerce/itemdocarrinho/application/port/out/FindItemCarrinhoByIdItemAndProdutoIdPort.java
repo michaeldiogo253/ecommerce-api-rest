@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface FindItemCarrinhoByIdItemAndProdutoIdPort {
 
-    Optional<ItemDoCarrinho> findItemCarrinhoByIdItemAndProdutoIdPort(Long idItemCarrinho, Long idProduto);
+    Optional<ItemDoCarrinho> findItemCarrinhoByIdItemAndProdutoId(Long idItemCarrinho, Long idProduto);
 }

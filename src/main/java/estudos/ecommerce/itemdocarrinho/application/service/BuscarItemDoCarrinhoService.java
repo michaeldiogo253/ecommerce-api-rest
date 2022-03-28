@@ -24,7 +24,7 @@ public class BuscarItemDoCarrinhoService implements BuscaItemDoCarrinhoUseCase {
     public ItemDoCarrinho execute(Carrinho carrinho, Long produtoId, Integer quantidade) {
 
         Optional<ItemDoCarrinho> itemCarrinho =
-                findItemCarrinhoByIdItemAndProdutoIdPort.findItemCarrinhoByIdItemAndProdutoIdPort(
+                findItemCarrinhoByIdItemAndProdutoIdPort.findItemCarrinhoByIdItemAndProdutoId(
                         carrinho.getId(),
                         produtoId);
 
