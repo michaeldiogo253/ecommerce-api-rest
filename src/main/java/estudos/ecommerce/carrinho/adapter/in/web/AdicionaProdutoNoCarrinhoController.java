@@ -8,17 +8,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-
+@RequestMapping("/ecommerce-api/carrinho")
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AdicionaProdutoNoCarrinhoController {
 
    private final AdicionaProdutoNoCarrinhoUseCase adicionarProdutoNoCarrinhoUseCase;
 
-   @PostMapping("/adicionar-produto-no-carrinho/")
+   @PostMapping("/adicionar-produto")
     public ResponseEntity<Void> adicionaProdutoNoCarrinho(@RequestBody @Valid CarrinhoRequest request){
 
        adicionarProdutoNoCarrinhoUseCase.execute(request.getIdCliente(),
