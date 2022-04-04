@@ -64,4 +64,8 @@ public class Carrinho {
 
     }
 
+    public boolean carrinhoIsVazio(){
+        return carrinho.isEmpty();
+    }
+
 }

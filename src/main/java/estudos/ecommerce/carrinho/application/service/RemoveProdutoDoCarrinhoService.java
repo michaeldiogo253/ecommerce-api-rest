@@ -1,6 +1,7 @@
 package estudos.ecommerce.carrinho.application.service;
 
 import estudos.ecommerce.carrinho.application.port.in.RemoveProdutoDoCarrinhoUseCase;
+import estudos.ecommerce.carrinho.application.port.out.DeleteCarrinhoByIdPort;
 import estudos.ecommerce.carrinho.application.port.out.FindCarrinhoByIdClientePort;
 import estudos.ecommerce.carrinho.application.port.out.SaveCarrinhoPort;
 import estudos.ecommerce.carrinho.domain.Carrinho;
@@ -20,6 +21,7 @@ public class RemoveProdutoDoCarrinhoService implements RemoveProdutoDoCarrinhoUs
     private final FindCarrinhoByIdClientePort findCarrinhoByIdClientePort;
     private final RemoveItemDoCarrinhoUseCase removeItemDoCarrinhoUseCase;
     private final SaveCarrinhoPort saveCarrinhoPort;
+    private final DeleteCarrinhoByIdPort deleteCarrinhoByIdPort;
 
     @Override
     public void execute(Long idCliente, Long idProduto, Integer quantidade) {
@@ -34,6 +36,12 @@ public class RemoveProdutoDoCarrinhoService implements RemoveProdutoDoCarrinhoUs
             carrinho.removeItemDoCarrinho(itemDoCarrinho);
         }
         carrinho.atualizaTotaisDoCarrinho();
+
+        if(carrinho.carrinhoIsVazio()){
+            deleteCarrinhoByIdPort.deleteCarrinhoPorId(carrinho.getId());
+            return;
+        }
+
         saveCarrinhoPort.salvarCarrinho(carrinho);
 
     }
