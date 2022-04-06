@@ -3,7 +3,6 @@ package estudos.ecommerce.itemdocarrinho.application.service;
 import estudos.ecommerce.carrinho.domain.Carrinho;
 import estudos.ecommerce.itemdocarrinho.application.port.in.RemoveItemDoCarrinhoUseCase;
 import estudos.ecommerce.itemdocarrinho.application.port.out.FindItemCarrinhoByIdCarrinhoAndIdProdutoPort;
-import estudos.ecommerce.itemdocarrinho.application.port.out.FindItemCarrinhoByIdItemAndProdutoIdPort;
 import estudos.ecommerce.itemdocarrinho.application.port.out.SaveItemCarrinhoPort;
 import estudos.ecommerce.itemdocarrinho.domain.ItemDoCarrinho;
 import estudos.ecommerce.util.exception.BussinessRuleException;
@@ -32,8 +31,7 @@ public class RemoveItemDoCarrinhoService implements RemoveItemDoCarrinhoUseCase 
                         .orElseThrow(() -> new ResourceNotFoundException("Produto não existe no carrinho"));
 
         if (!verificaSePodeSubtrairQuantidadeDoProduto(itemDoCarrinho, quantidade)) {
-            throw new BussinessRuleException("A quantidade informada para remoção é maior do que a quantidade de produtos que o carrinho " +
-                    "possui");
+            throw new BussinessRuleException("A quantidade de itens do carrinho é menor que a quantidade informada para remoção");
         }
 
         itemDoCarrinho.subtraiQuantidade(quantidade);
