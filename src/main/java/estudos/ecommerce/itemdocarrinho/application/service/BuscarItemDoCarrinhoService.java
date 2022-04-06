@@ -28,11 +28,9 @@ public class BuscarItemDoCarrinhoService implements BuscaItemDoCarrinhoUseCase {
                         carrinho.getId(),
                         produtoId);
 
-        if(itemCarrinho.isPresent()){
-            return itemCarrinho.get();
-        }
-
-        return criaNovoItemCarrinhoUseCase.criaNovoItemDoCarrinho(produtoId, quantidade, carrinho);
+        return itemCarrinho.orElseGet(() -> criaNovoItemCarrinhoUseCase.criaNovoItemDoCarrinho(produtoId,
+                                                                                               quantidade,
+                                                                                               carrinho));
 
     }
 }
