@@ -68,7 +68,4 @@ public class ItemDoCarrinho {
         return this.carrinho.getTotal();
     }
 
-    public Integer getQuantidadeDeItensDoCarrinho(){
-        return this.carrinho.getQuantidadeDeItensDoCarrinho();
-    }
 }
