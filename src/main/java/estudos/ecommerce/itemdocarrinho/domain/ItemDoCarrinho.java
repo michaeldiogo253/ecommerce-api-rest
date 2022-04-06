@@ -56,4 +56,16 @@ public class ItemDoCarrinho {
                                                                        .multiply(BigDecimal.valueOf(this.quantidade))));
     }
 
+    public Long getIdCarrinho(){
+        return this.carrinho.getId();
+    }
+
+    public String getNomeCliente(){
+        return this.carrinho.getNomeCliente();
+    }
+
+    public BigDecimal getValorTotalDoCarrinho(){
+        return this.carrinho.getTotal();
+    }
+
 }
