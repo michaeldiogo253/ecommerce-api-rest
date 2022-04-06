@@ -21,8 +21,8 @@ public class Carrinho {
 
     @OneToOne private Cliente cliente;
 
-    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL,
-               orphanRemoval = true) private List<ItemDoCarrinho> carrinho = new ArrayList<>();
+    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ItemDoCarrinho> carrinho = new ArrayList<>();
 
     private BigDecimal total = new BigDecimal(0);
 
@@ -68,4 +68,11 @@ public class Carrinho {
         return carrinho.isEmpty();
     }
 
+    public String getNomeCliente(){
+        return this.cliente.getNome();
+    }
+
+    public Integer getQuantidadeDeItensDoCarrinho(){
+        return this.carrinho.size();
+    }
 }
