@@ -17,6 +17,7 @@ import java.time.LocalDate;
 public class Produto {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+    @Column(unique = true, nullable = false)
     private String nome;
     private String descricao;
     private BigDecimal preco;
