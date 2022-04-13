@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ListarClientePorIdService implements ListarClientePorIdControllerUseCase {
 
-    private final FindClienteByIdPort  findClienteByIdPort;
+    private final FindClienteByIdPort findClienteByIdPort;
 
     @Override
     public Cliente execute(Long idCliente) {
