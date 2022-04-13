@@ -20,7 +20,7 @@ public class DeletarClientePorIdController {
     public ResponseEntity<Void> deletarClientePorId(@PathVariable Long idCliente) {
 
         deletarClientePorIdUseCase.execute(idCliente);
-        return ResponseEntity.ok()
-                             .build();
+
+        return ResponseEntity.ok().build();
     }
 }
