@@ -22,7 +22,8 @@ public class AtualizaClienteController {
     public ResponseEntity<ClienteResponse> atualizaCliente(@PathVariable Long idCliente,
                                                            @RequestBody @Valid ClienteRequest request){
 
-        Cliente clienteAtualizado = atualizaDadosPessoaisClienteUseCase.execute(idCliente, request.toDadosPessoais(request));
+        Cliente clienteAtualizado = atualizaDadosPessoaisClienteUseCase.execute(idCliente,
+                                                                                request.toDadosPessoais(request));
 
         return ResponseEntity.ok().body(new ClienteResponse(clienteAtualizado));
     }
