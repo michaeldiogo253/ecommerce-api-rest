@@ -24,7 +24,8 @@ public class CadastrarClienteController {
     private final CadastrarClienteUseCase useCase;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<ClienteResponse> cadastrarCliente(@RequestBody @Valid ClienteRequest request, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<ClienteResponse> cadastrarCliente(@RequestBody @Valid ClienteRequest request,
+                                                            UriComponentsBuilder uriBuilder) {
 
         Cliente clienteCriado = useCase.execute(request.toModel(request));
         URI uri = uriBuilder.path("ecommerce-api/cliente/{id}")
