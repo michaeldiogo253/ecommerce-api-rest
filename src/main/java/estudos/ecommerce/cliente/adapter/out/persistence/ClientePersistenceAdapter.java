@@ -45,7 +45,6 @@ public class ClientePersistenceAdapter
     @Override
     public Cliente salvarCliente(Cliente cliente) {
 
-        Cliente clienteSalvo = clienteRepository.save(cliente);
-        return clienteSalvo;
+        return clienteRepository.save(cliente);
     }
 }
