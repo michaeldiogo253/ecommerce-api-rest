@@ -19,7 +19,6 @@ public class CadastraProdutoService implements CadastrarProdutoUseCase {
     private final FindCategoriaByNomePort findCategoriaByNomePort;
     private final SaveProdutoPort saveProdutoPort;
 
-
     @Override
     public Produto execute(Produto produto, String nomeCategoria) {
 
