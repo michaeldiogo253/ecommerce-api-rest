@@ -21,7 +21,7 @@ public class ListarTodosOsClientesController {
     private final ListarTodosOsClientesUseCase listarTodosOsClientesUseCase;
 
     @GetMapping("/listar-todos")
-    public ResponseEntity<List<ClienteResponse>> listaClientePorId(@PathVariable Long idCliente){
+    public ResponseEntity<List<ClienteResponse>> listaClientePorId(){
 
         List<Cliente> clientes = listarTodosOsClientesUseCase.execute();
 

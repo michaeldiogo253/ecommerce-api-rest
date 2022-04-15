@@ -64,5 +64,4 @@ public class CategoriaService {
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Categoria não encontrada");
     }
-
 }
