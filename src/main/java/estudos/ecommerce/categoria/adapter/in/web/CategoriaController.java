@@ -19,13 +19,6 @@ public class CategoriaController {
 
     private final CategoriaService categoriaService;
 
-    @Transactional
-    @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrarCategoria(
-            @RequestBody @Valid CategoriaRequest request, UriComponentsBuilder uriBuilder) {
-
-        return categoriaService.cadastrarCategoria(request, uriBuilder);
-    }
 
     @Transactional
     @GetMapping("/{id}")
