@@ -1,6 +1,7 @@
 package estudos.ecommerce.categoria.adapter.out.persistence;
 
 import estudos.ecommerce.categoria.application.port.out.FindCategoriaByNomePort;
+import estudos.ecommerce.categoria.application.port.out.SaveCategoriaPort;
 import estudos.ecommerce.categoria.domain.Categoria;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort {
+public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort, SaveCategoriaPort {
 
     private final CategoriaRepository categoriaRepository;
 
@@ -18,5 +19,11 @@ public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort {
 
         return categoriaRepository.findCategoriaByNome(nomeCategoria)
                                   .orElseThrow(()-> new ResourceNotFoundException("Categoria não encontrada"));
+    }
+
+    @Override
+    public Categoria salvarCategoria(Categoria categoria) {
+
+        return categoriaRepository.save(categoria);
     }
 }
