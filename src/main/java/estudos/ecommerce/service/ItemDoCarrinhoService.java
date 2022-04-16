@@ -31,13 +31,9 @@ public class ItemDoCarrinhoService {
                 carrinho.getId(),
                 idProduto);
 
-        if (itemDoCarrinhoBuscado.isPresent()) {
-            return itemDoCarrinhoBuscado.get();
-        }
+        return itemDoCarrinhoBuscado.orElseGet(() -> criaNovoItemDoCarrinho(idProduto, quantidade, carrinho));
 
-        return criaNovoItemDoCarrinho(idProduto, quantidade, carrinho);
     }
-
 
     public ItemDoCarrinho criaNovoItemDoCarrinho(Long idProduto, Integer quantidade, Carrinho carrinho) {
 

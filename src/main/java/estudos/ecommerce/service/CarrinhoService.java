@@ -35,6 +35,7 @@ public class CarrinhoService {
         }
 
         return criaNovoCarrinhoEAdicionaProduto(request);
+
     }
 
     private Carrinho adicionaProdutoEmCarrinhoExistente(Carrinho carrinhoBuscado,
@@ -44,6 +45,7 @@ public class CarrinhoService {
         carrinhoBuscado.adicionaItemNoCarrinho(itemDoCarrinho, quantidade);
         carrinhoRepository.save(carrinhoBuscado);
         return carrinhoBuscado;
+
     }
 
     private Carrinho criaNovoCarrinhoEAdicionaProduto(CarrinhoRequest request) {
@@ -58,6 +60,7 @@ public class CarrinhoService {
         novoCarrinho.adicionaItemNoCarrinho(itemDoCarrinho, request.getQuantidade());
         carrinhoRepository.save(novoCarrinho);
         return novoCarrinho;
+
     }
 
     public void removeProdutoDoCarrinho(CarrinhoRequest request) {
