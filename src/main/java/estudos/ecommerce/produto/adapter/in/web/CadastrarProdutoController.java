@@ -27,7 +27,7 @@ public class CadastrarProdutoController {
     public ResponseEntity<ProdutoResponse> cadastrarProduto(@RequestBody @Valid ProdutoRequest request,
                                                             UriComponentsBuilder uriBuilder) {
 
-        Produto produtoCriado = cadastrarProdutoUseCase.execute(request.toModel(request), request.getCategoria());
+        Produto produtoCriado = cadastrarProdutoUseCase.execute(ProdutoRequest.toModel(request), request.getCategoria());
         URI uri = uriBuilder.path("ecommerce-api/produto/{id}")
                             .buildAndExpand(produtoCriado.getId())
                             .toUri();
