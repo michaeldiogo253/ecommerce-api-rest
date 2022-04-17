@@ -40,7 +40,8 @@ public class ProdutoPersistenceAdapter implements SaveProdutoPort,
     @Override
     public Produto findProdutoById(Long idProduto) {
 
-        return produtoRepository.findById(idProduto).orElseThrow(()-> new ResourceNotFoundException("Produto não encontrado"));
+        return produtoRepository.findById(idProduto)
+                                .orElseThrow(()-> new ResourceNotFoundException("Produto não encontrado"));
     }
 
     @Override
