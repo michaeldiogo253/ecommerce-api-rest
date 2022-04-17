@@ -15,7 +15,7 @@ public class ProdutoRequest {
     @NotNull(message = "Preço do produto é obrigatorio") BigDecimal preco;
     @NotBlank(message = "Categoria do produto é obrigatorio") String categoria;
 
-    public Produto toModel(ProdutoRequest request) {
+    public static Produto toModel(ProdutoRequest request) {
         return new Produto(request.getNome(), request.getDescricao(), request.getPreco());
     }
 
