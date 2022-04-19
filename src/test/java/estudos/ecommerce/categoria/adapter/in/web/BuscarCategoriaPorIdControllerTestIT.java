@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 
-
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -23,11 +22,12 @@ class BuscarCategoriaPorIdControllerTestIT {
     @Test
     void deveBuscarCategoriaComIdValidoERetornarStatus200OK(){
 
-        Long idCategoria = 1L;
+        var idCategoria = 1L;
 
-       var entity = testRestTemplate.getForEntity("/ecommerce-api/categoria/{idCategoria}",
-                                                                         CategoriaResponse.class,
-                                                                            idCategoria);
+       var entity =
+               testRestTemplate.getForEntity("/ecommerce-api/categoria/{idCategoria}",
+                                             CategoriaResponse.class,
+                                             idCategoria);
 
         assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 
@@ -39,7 +39,7 @@ class BuscarCategoriaPorIdControllerTestIT {
     @Test
     void deveDevolver500AoListarCategoriaComIdInvalido() {
 
-        Long idCategoria = 100000L;
+        var idCategoria = 100000L;
 
         var categoriaResponse = testRestTemplate.getForEntity("/ecommerce-api/categoria/{idCategoria}",
                                                                                 CategoriaResponse.class,
