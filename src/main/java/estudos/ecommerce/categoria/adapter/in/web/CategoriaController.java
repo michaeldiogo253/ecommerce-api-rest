@@ -21,12 +21,6 @@ public class CategoriaController {
 
 
     @Transactional
-    @GetMapping("/{id}")
-    public ResponseEntity<?> buscarCategoriaPorId(@PathVariable Long id) {
-        return categoriaService.buscarCategoriaPorId(id);
-    }
-
-    @Transactional
     @GetMapping("/listar-todas")
     public ResponseEntity<List<CategoriaResponse>> listarTodasCategorias() {
         return categoriaService.listarTodasCategorias();
