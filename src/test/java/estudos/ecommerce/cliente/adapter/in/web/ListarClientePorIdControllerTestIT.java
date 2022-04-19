@@ -1,6 +1,5 @@
 package estudos.ecommerce.cliente.adapter.in.web;
 
-import estudos.ecommerce.cliente.application.port.in.ListarClientePorIdControllerUseCase;
 import estudos.ecommerce.cliente.domain.Cliente;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +21,10 @@ class ListarClientePorIdControllerTestIT {
 
         Long idCliente = 1L;
 
-        var clienteResponse = testRestTemplate.getForEntity("/ecommerce-api/cliente/{id}",
-                                                            String.class,
-                                                            idCliente);
+        var clienteResponse =
+                testRestTemplate.getForEntity("/ecommerce-api/cliente/{id}",
+                                              String.class,
+                                              idCliente);
 
         assertThat(clienteResponse.getStatusCode()).isEqualTo(HttpStatus.OK);
 
