@@ -19,21 +19,17 @@ public class CategoriaController {
 
     private final CategoriaService categoriaService;
 
-
-    @Transactional
     @GetMapping("/listar-todas")
     public ResponseEntity<List<CategoriaResponse>> listarTodasCategorias() {
         return categoriaService.listarTodasCategorias();
     }
 
-    @Transactional
     @PutMapping("/{id}")
     public ResponseEntity<?> alterarCategoriaPorId(
             @PathVariable Long id, @RequestBody @Valid CategoriaRequest request) {
         return categoriaService.alterarCategoria(id, request);
     }
 
-    @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deletarCategoriaPorId(@PathVariable Long id) {
         return categoriaService.deletarCategoria(id);
