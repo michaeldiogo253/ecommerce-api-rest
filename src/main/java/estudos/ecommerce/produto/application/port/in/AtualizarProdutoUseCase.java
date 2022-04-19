@@ -1,6 +1,5 @@
 package estudos.ecommerce.produto.application.port.in;
 
-import estudos.ecommerce.produto.adapter.in.web.request.AtualizaProdutoRequest;
 import estudos.ecommerce.produto.domain.Produto;
 
 import java.math.BigDecimal;
