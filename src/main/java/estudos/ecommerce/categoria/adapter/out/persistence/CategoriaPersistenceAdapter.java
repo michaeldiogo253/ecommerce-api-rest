@@ -1,21 +1,21 @@
 package estudos.ecommerce.categoria.adapter.out.persistence;
 
-import estudos.ecommerce.categoria.application.port.out.DeletarCategoriaByIdPort;
-import estudos.ecommerce.categoria.application.port.out.FindCategoriaByIdPort;
-import estudos.ecommerce.categoria.application.port.out.FindCategoriaByNomePort;
-import estudos.ecommerce.categoria.application.port.out.SaveCategoriaPort;
+import estudos.ecommerce.categoria.application.port.out.*;
 import estudos.ecommerce.categoria.domain.Categoria;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort,
                                                     SaveCategoriaPort,
                                                     FindCategoriaByIdPort,
-                                                    DeletarCategoriaByIdPort {
+                                                    DeletarCategoriaByIdPort,
+                                                    FindAllCategoriasPort {
 
     private final CategoriaRepository categoriaRepository;
 
@@ -49,5 +49,10 @@ public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort,
         categoriaRepository.deleteById(idCategoria);
 
         return null;
+    }
+
+    @Override
+    public List<Categoria> findAllCategorias() {
+        return categoriaRepository.findAll();
     }
 }
