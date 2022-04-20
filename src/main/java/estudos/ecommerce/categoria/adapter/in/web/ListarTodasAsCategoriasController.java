@@ -2,7 +2,6 @@ package estudos.ecommerce.categoria.adapter.in.web;
 
 import estudos.ecommerce.categoria.adapter.in.web.response.CategoriaResponse;
 import estudos.ecommerce.categoria.application.port.out.FindAllCategoriasPort;
-import estudos.ecommerce.categoria.domain.Categoria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
