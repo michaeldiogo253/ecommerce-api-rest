@@ -12,8 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class AlterarCategoriaRequest {
 
-    @NotNull(message = "Campo ID não pode ser nulo")
-    private Long idCategoria;
+    @NotNull(message = "Campo ID não pode ser nulo") private Long idCategoria;
     @NotBlank(message = "Campo nome não pode estar em branco") private String nome;
 
 }
