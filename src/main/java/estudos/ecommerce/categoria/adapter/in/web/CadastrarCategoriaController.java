@@ -35,5 +35,4 @@ public class CadastrarCategoriaController {
                              .body(CategoriaResponse.from(categoria));
 
     }
-
 }
