@@ -1,5 +1,6 @@
 package estudos.ecommerce.categoria.adapter.out.persistence;
 
+import estudos.ecommerce.categoria.application.port.out.DeletarCategoriaByIdPort;
 import estudos.ecommerce.categoria.application.port.out.FindCategoriaByIdPort;
 import estudos.ecommerce.categoria.application.port.out.FindCategoriaByNomePort;
 import estudos.ecommerce.categoria.application.port.out.SaveCategoriaPort;
@@ -13,7 +14,8 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort,
                                                     SaveCategoriaPort,
-                                                    FindCategoriaByIdPort {
+                                                    FindCategoriaByIdPort,
+                                                    DeletarCategoriaByIdPort {
 
     private final CategoriaRepository categoriaRepository;
 
@@ -35,5 +37,17 @@ public class CategoriaPersistenceAdapter implements FindCategoriaByNomePort,
 
         return categoriaRepository.findById(idCategoria)
                                   .orElseThrow(() -> new ResourceNotFoundException("Categoria não encontrada"));
+    }
+
+    @Override
+    public Class<? extends Throwable> deletarCategoriaPorId(Long idCategoria) {
+
+        if( categoriaRepository.findById(idCategoria).isEmpty()){
+            throw new ResourceNotFoundException("Categoria não encontrada");
+        }
+
+        categoriaRepository.deleteById(idCategoria);
+
+        return null;
     }
 }

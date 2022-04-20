@@ -30,8 +30,3 @@ public class CategoriaController {
         return categoriaService.alterarCategoria(id, request);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletarCategoriaPorId(@PathVariable Long id) {
-        return categoriaService.deletarCategoria(id);
-    }
-}
