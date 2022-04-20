@@ -25,4 +25,3 @@ public class CategoriaController {
         return categoriaService.alterarCategoria(id, request);
     }
 
-}
