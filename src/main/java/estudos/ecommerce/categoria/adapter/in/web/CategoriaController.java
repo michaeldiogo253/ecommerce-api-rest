@@ -19,11 +19,6 @@ public class CategoriaController {
 
     private final CategoriaService categoriaService;
 
-    @GetMapping("/listar-todas")
-    public ResponseEntity<List<CategoriaResponse>> listarTodasCategorias() {
-        return categoriaService.listarTodasCategorias();
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<?> alterarCategoriaPorId(
             @PathVariable Long id, @RequestBody @Valid CategoriaRequest request) {
