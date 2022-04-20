@@ -3,13 +3,9 @@ package estudos.ecommerce.categoria.application.service;
 import estudos.ecommerce.categoria.application.port.out.DeletarCategoriaByIdPort;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito;
 import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 
