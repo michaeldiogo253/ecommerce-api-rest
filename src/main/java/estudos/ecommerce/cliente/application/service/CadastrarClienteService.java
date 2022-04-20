@@ -18,7 +18,6 @@ public class CadastrarClienteService implements CadastrarClienteUseCase {
     @Override
     public Cliente execute(Cliente cliente) {
 
-        Cliente clienteSalvo = salvarClientePort.salvarCliente(cliente);
-        return clienteSalvo;
+        return salvarClientePort.salvarCliente(cliente);
     }
 }
