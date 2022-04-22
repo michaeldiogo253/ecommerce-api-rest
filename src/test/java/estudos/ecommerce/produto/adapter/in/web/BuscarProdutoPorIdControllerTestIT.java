@@ -48,6 +48,4 @@ class BuscarProdutoPorIdControllerTestIT {
 
         assertThat(produtoBuscado.getBody().getId()).isEqualTo(1L);
     }
-
-
 }
