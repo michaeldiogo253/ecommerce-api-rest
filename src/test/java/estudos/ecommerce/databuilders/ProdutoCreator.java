@@ -13,7 +13,10 @@ public class ProdutoCreator {
 
     public static Produto umProduto() {
 
-        return new Produto("ANY_PRODUTO", "ANY_DESCRICAO", new BigDecimal("10"), new Categoria("INFORMATICA"));
+        return new Produto("ANY_PRODUTO",
+                           "ANY_DESCRICAO",
+                           new BigDecimal("10"),
+                           new Categoria("INFORMATICA"));
     }
 
     public static List<Produto> variosProdutos(Integer quantidade) {
