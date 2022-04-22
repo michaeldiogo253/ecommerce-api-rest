@@ -19,10 +19,10 @@ public class AlterarCategoriaService implements AlterarCategoriaUseCase {
     private final SaveCategoriaPort saveCategoriaPort;
 
     @Override
-    public void execute(Long idCategoria, String novoNomeCategoria) {
+    public Categoria execute(Long idCategoria, String novoNomeCategoria) {
 
         Categoria categoria = findCategoriaByIdPort.findCategoriaByIdPort(idCategoria);
         categoria.alteraNomeCategoria(novoNomeCategoria);
-        saveCategoriaPort.salvarCategoria(categoria);
+        return saveCategoriaPort.salvarCategoria(categoria);
     }
 }

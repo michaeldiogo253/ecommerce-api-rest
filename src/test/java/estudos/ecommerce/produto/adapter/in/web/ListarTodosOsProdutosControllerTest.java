@@ -34,10 +34,10 @@ class ListarTodosOsProdutosControllerTest {
     @Test
     void deveListarTodosOsProdutosEDevolverStatus200() throws Exception {
 
-        String url = "/ecommerce-api/produto/listar-todos";
+        var url = "/ecommerce-api/produto/listar-todos";
 
-        List<Produto> produtos = ProdutoCreator.variosProdutos(3);
-        List<ProdutoResponse> produtoResponses = ProdutoResponse.from(produtos);
+        var produtos = ProdutoCreator.variosProdutos(3);
+        var produtoResponses = ProdutoResponse.from(produtos);
 
         given(findAllProdutoPort.listarTodosOsProdutos()).willReturn(produtos);
 
