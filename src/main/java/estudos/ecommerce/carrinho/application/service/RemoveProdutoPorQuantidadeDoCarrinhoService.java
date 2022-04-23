@@ -5,7 +5,7 @@ import estudos.ecommerce.carrinho.application.port.out.DeleteCarrinhoByIdPort;
 import estudos.ecommerce.carrinho.application.port.out.FindCarrinhoByIdClientePort;
 import estudos.ecommerce.carrinho.application.port.out.SaveCarrinhoPort;
 import estudos.ecommerce.carrinho.domain.Carrinho;
-import estudos.ecommerce.itemdocarrinho.application.port.in.RemoveItemDoCarrinhoUseCase;
+import estudos.ecommerce.itemdocarrinho.application.port.in.RemoveItemDoCarrinhoPorQuantidadeUseCase;
 import estudos.ecommerce.itemdocarrinho.domain.ItemDoCarrinho;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +16,10 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 @Transactional
-public class RemoveProdutoDoCarrinhoService implements RemoveProdutoDoCarrinhoUseCase {
+public class RemoveProdutoPorQuantidadeDoCarrinhoService implements RemoveProdutoDoCarrinhoUseCase {
 
     private final FindCarrinhoByIdClientePort findCarrinhoByIdClientePort;
-    private final RemoveItemDoCarrinhoUseCase removeItemDoCarrinhoUseCase;
+    private final RemoveItemDoCarrinhoPorQuantidadeUseCase removeItemDoCarrinhoUseCase;
     private final SaveCarrinhoPort saveCarrinhoPort;
     private final DeleteCarrinhoByIdPort deleteCarrinhoByIdPort;
 
