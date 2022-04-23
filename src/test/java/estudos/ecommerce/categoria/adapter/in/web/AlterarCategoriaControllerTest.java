@@ -14,7 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-
 import static org.mockito.BDDMockito.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -46,5 +45,20 @@ class AlterarCategoriaControllerTest {
         then(useCase).should().execute(request.getIdCategoria(), request.getNome());
 
         assertThat(result.getResponse().getContentAsString()).isEqualTo("{\"id\":null,\"nome\":\"BRINQUEDOS\"}");
+    }
+
+    @Test
+    void deveriaRetornar400BadRequestQuandoNapPrencherTodosOsAtributosDaRequest() throws Exception {
+        String url = "/ecommerce-api/categoria/atualizar";
+        AlterarCategoriaRequest request = new AlterarCategoriaRequest();
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.put(url)
+                                                                 .header("Content-Type", "application/json")
+                                                                 .accept("application/json")
+                                                                 .content(mapper.writeValueAsString(request)))
+                                  .andExpect(status().isBadRequest())
+                                  .andReturn();
+
+        then(useCase).shouldHaveNoInteractions();
     }
 }
