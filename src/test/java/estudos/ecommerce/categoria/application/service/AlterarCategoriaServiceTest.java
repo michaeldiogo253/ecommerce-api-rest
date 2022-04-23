@@ -4,12 +4,15 @@ import estudos.ecommerce.categoria.application.port.out.FindCategoriaByIdPort;
 import estudos.ecommerce.categoria.application.port.out.SaveCategoriaPort;
 import estudos.ecommerce.categoria.domain.Categoria;
 import estudos.ecommerce.databuilders.CategoriaCreator;
+import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.doThrow;
 
 class AlterarCategoriaServiceTest {
 
@@ -38,6 +41,23 @@ class AlterarCategoriaServiceTest {
                                .salvarCategoria(categoria);
 
         assertThat(categoriaAtualizada.getNome()).isEqualTo(novoNomeCategoria);
+
+    }
+
+    @Test
+    void deveriaLancarResourceNotFoundExceptionQuandoTentarAlterarCategoriaComIdInvalido(){
+
+        Long idCategoriaInvalido = 99999L;
+
+        doThrow( new ResourceNotFoundException("Categoria não encontrada"))
+                .when(findCategoriaByIdPort).findCategoriaByIdPort(idCategoriaInvalido);
+
+        assertThatThrownBy(() -> {
+            service.execute(idCategoriaInvalido, "any_nome");
+        }).isInstanceOf(ResourceNotFoundException.class);
+
+        then(findCategoriaByIdPort).should().findCategoriaByIdPort(idCategoriaInvalido);
+        then(saveCategoriaPort).shouldHaveNoInteractions();
 
     }
 }
