@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RequestMapping("/ecommerce-api/carrinho")
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class RemoveProdutoDoCarrinhoController {
+public class RemoveProdutoDoCarrinhoPorQuantidadeController {
     private final RemoveProdutoDoCarrinhoUseCase removeProdutoDoCarrinhoUseCase;
 
     @PostMapping("/remover-produto")
