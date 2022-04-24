@@ -31,7 +31,8 @@ public class RemoveItemDoCarrinhoPorQuantidadeService implements RemoveItemDoCar
                         .orElseThrow(() -> new ResourceNotFoundException("Produto não existe no carrinho"));
 
         if (!verificaSePodeSubtrairQuantidadeDoProduto(itemDoCarrinho, quantidade)) {
-            throw new BussinessRuleException("A quantidade de itens do carrinho é menor que a quantidade informada para remoção");
+            throw new BussinessRuleException("A quantidade de itens do carrinho é " +
+                                             "menor que a quantidade informada para remoção");
         }
 
         itemDoCarrinho.subtraiQuantidade(quantidade);
