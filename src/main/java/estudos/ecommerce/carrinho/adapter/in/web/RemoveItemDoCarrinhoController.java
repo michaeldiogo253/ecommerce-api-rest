@@ -19,12 +19,11 @@ public class RemoveItemDoCarrinhoController {
 
     private final RemoveItemDoCarrinhoUseCase useCase;
 
-    @PostMapping()
+    @PostMapping("/remover-item-do-carrinho")
     public ResponseEntity<Void> removeProdutoDoCarrinho(@RequestBody @Valid RemoverProdutoDoCarrinhoRequest request) {
 
         useCase.execute(request.getIdCliente(), request.getIdProduto());
 
-        return ResponseEntity.ok()
-                             .build();
+        return ResponseEntity.ok().build();
     }
 }

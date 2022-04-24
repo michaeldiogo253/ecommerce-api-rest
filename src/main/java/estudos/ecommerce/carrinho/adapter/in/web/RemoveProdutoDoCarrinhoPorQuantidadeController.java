@@ -1,7 +1,7 @@
 package estudos.ecommerce.carrinho.adapter.in.web;
 
 import estudos.ecommerce.carrinho.adapter.in.web.request.CarrinhoRequest;
-import estudos.ecommerce.carrinho.application.port.in.RemoveProdutoDoCarrinhoUseCase;
+import estudos.ecommerce.carrinho.application.port.in.RemoveProdutoDoCarrinhoPorQuantidadeUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class RemoveProdutoDoCarrinhoPorQuantidadeController {
-    private final RemoveProdutoDoCarrinhoUseCase removeProdutoDoCarrinhoUseCase;
+    private final RemoveProdutoDoCarrinhoPorQuantidadeUseCase removeProdutoDoCarrinhoUseCase;
 
     @PostMapping("/remover-produto")
     public ResponseEntity<Void> removerProdutoDoCarrinho(@RequestBody @Valid CarrinhoRequest request){

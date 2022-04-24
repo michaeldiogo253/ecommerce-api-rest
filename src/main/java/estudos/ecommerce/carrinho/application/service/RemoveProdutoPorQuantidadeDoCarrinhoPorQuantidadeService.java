@@ -1,6 +1,6 @@
 package estudos.ecommerce.carrinho.application.service;
 
-import estudos.ecommerce.carrinho.application.port.in.RemoveProdutoDoCarrinhoUseCase;
+import estudos.ecommerce.carrinho.application.port.in.RemoveProdutoDoCarrinhoPorQuantidadeUseCase;
 import estudos.ecommerce.carrinho.application.port.out.DeleteCarrinhoByIdPort;
 import estudos.ecommerce.carrinho.application.port.out.FindCarrinhoByIdClientePort;
 import estudos.ecommerce.carrinho.application.port.out.SaveCarrinhoPort;
@@ -16,7 +16,8 @@ import javax.transaction.Transactional;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 @Transactional
-public class RemoveProdutoPorQuantidadeDoCarrinhoService implements RemoveProdutoDoCarrinhoUseCase {
+public class RemoveProdutoPorQuantidadeDoCarrinhoPorQuantidadeService
+        implements RemoveProdutoDoCarrinhoPorQuantidadeUseCase {
 
     private final FindCarrinhoByIdClientePort findCarrinhoByIdClientePort;
     private final RemoveItemDoCarrinhoPorQuantidadeUseCase removeItemDoCarrinhoUseCase;
