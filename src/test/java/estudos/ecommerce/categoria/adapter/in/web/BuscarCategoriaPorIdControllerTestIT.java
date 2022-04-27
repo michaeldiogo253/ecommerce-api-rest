@@ -24,7 +24,7 @@ class BuscarCategoriaPorIdControllerTestIT {
 
         var idCategoria = 1L;
 
-       var entity =
+        var entity =
                testRestTemplate.getForEntity("/ecommerce-api/categoria/{idCategoria}",
                                              CategoriaResponse.class,
                                              idCategoria);
