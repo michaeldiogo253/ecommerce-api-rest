@@ -25,6 +25,7 @@ class CadastrarClienteControllerTestIT {
         ResponseEntity<Cliente> clienteResponseEntity = testRestTemplate.postForEntity("/ecommerce-api/cliente/cadastrar",
                                                                                        request,
                                                                                        Cliente.class);
+
         assertThat(clienteResponseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(clienteResponseEntity.getBody().getId()).isNotNull();
 
