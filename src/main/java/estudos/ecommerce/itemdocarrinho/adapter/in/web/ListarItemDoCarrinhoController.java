@@ -35,8 +35,8 @@ public class ListarItemDoCarrinhoController {
                 new ListarItensDoCarrinhoResponse(itensDoCarrinhoByIdCarrinho.stream().map(ItemDoCarrinho::getIdCarrinho).findFirst().orElse(0L),
                                                   itensDoCarrinhoByIdCarrinho.stream().map(ItemDoCarrinho::getNomeCliente).findFirst().orElse(""),
                                                   itensDoCarrinhoByIdCarrinho.stream().map(ItemDoCarrinho::getValorTotalDoCarrinho).findFirst().orElse(BigDecimal.ZERO),
-                                                  itensDoCarrinhoByIdCarrinho.stream().map(ItemDoCarrinho::getCarrinho).findFirst().map(
-                                                          Carrinho::getQuantidadeTotalItensCarrinho).stream().findFirst().orElse(0),
+                                                  itensDoCarrinhoByIdCarrinho.stream().map(ItemDoCarrinho::getCarrinho).findFirst()
+                                                                             .map(Carrinho::getQuantidadeTotalItensCarrinho).stream().findFirst().orElse(0),
                                                   ItemDoCarrinhoResponse.of(itensDoCarrinhoByIdCarrinho));
 
         return ResponseEntity.ok().body(itensDoCarrinhoResponse);
