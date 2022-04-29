@@ -46,9 +46,7 @@ class ListarClientePorIdServiceTest {
             service.execute(idCliente);
         }).isInstanceOf(ResourceNotFoundException.class);
 
-
         then(findClienteByIdPort).should().buscaClientePorId(idCliente);
-
 
     }
 
