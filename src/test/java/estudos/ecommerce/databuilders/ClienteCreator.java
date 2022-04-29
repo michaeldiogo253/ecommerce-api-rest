@@ -33,6 +33,4 @@ public class ClienteCreator {
                            String.valueOf(faker.phoneNumber()),
                            LocalDate.now());
     }
-
-
 }
