@@ -3,6 +3,7 @@ package estudos.ecommerce.cliente.adapter.in.web.response;
 import estudos.ecommerce.cliente.domain.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class ClienteResponse {
     private Long id;
     private String nome;
