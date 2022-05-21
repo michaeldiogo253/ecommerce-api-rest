@@ -1,9 +1,6 @@
 package estudos.ecommerce.cliente.adapter.out.persistence;
 
-import estudos.ecommerce.cliente.application.port.out.DeleteClienteByIdPort;
-import estudos.ecommerce.cliente.application.port.out.FindAllClientesPort;
-import estudos.ecommerce.cliente.application.port.out.FindClienteByIdPort;
-import estudos.ecommerce.cliente.application.port.out.SaveClientePort;
+import estudos.ecommerce.cliente.application.port.out.*;
 import estudos.ecommerce.cliente.domain.Cliente;
 import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -11,11 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ClientePersistenceAdapter
-        implements SaveClientePort, FindAllClientesPort, FindClienteByIdPort, DeleteClienteByIdPort {
+        implements SaveClientePort,
+                   FindAllClientesPort,
+                   FindClienteByIdPort,
+                   DeleteClienteByIdPort,
+                   FindOptionalClienteByIdPort {
 
     private final ClienteRepository clienteRepository;
 
@@ -46,5 +48,11 @@ public class ClientePersistenceAdapter
     public Cliente salvarCliente(Cliente cliente) {
 
         return clienteRepository.save(cliente);
+    }
+
+    @Override
+    public Optional<Cliente> findClienteOptionalById(Long idCliente) {
+
+        return clienteRepository.findById(idCliente);
     }
 }
