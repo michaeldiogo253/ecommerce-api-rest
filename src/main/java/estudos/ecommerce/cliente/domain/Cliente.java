@@ -18,10 +18,12 @@ public class Cliente {
 
     @Embedded private DadosPessoais dadosPessoais;
 
-    public Cliente(String nome, String cpf, String telefone, LocalDate dataNasc) {
+    @Embedded private Endereco endereco;
+
+    public Cliente(String nome, String cpf, String telefone, LocalDate dataNasc, Endereco endereco) {
 
         this.dadosPessoais = new DadosPessoais(nome, cpf, telefone, dataNasc);
-
+        this.endereco = endereco;
     }
 
     @Override
@@ -63,4 +65,10 @@ public class Cliente {
         this.dadosPessoais.setTelefone(dadosPessoaisASerAtualizado.getTelefone());
         this.dadosPessoais.setDataNasc(dadosPessoaisASerAtualizado.getDataNasc());
     }
+
+    public void atualizaEndereco(Endereco endereco){
+        this.getEndereco().atualizaEndereco(endereco);
+
+    }
+
 }
