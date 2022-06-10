@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
 
+@Transactional
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @RequestMapping("/ecommerce-api/cliente")
@@ -27,13 +29,12 @@ public class CadastrarClienteController {
     public ResponseEntity<ClienteResponse> cadastrarCliente(@RequestBody @Valid ClienteRequest request,
                                                             UriComponentsBuilder uriBuilder) {
 
-        Cliente clienteCriado = useCase.execute(request.toModel(request));
+        Cliente clienteCriado = useCase.execute(request.toModel());
         URI uri = uriBuilder.path("ecommerce-api/cliente/{id}")
                             .buildAndExpand(clienteCriado.getId())
                             .toUri();
 
-        return ResponseEntity.created(uri)
-                             .body(new ClienteResponse(clienteCriado));
+        return ResponseEntity.created(uri).body(new ClienteResponse(clienteCriado));
 
     }
 
