@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import estudos.ecommerce.categoria.adapter.in.web.response.CategoriaResponse;
 import estudos.ecommerce.categoria.application.port.out.FindCategoriaByIdPort;
 import estudos.ecommerce.categoria.domain.Categoria;
-import estudos.ecommerce.util.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,7 +13,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -45,7 +43,8 @@ class BuscarCategoriaPorIdControllerTest {
 
         then(findCategoriaByIdPort).should().findCategoriaByIdPort(idCategoria);
 
-        assertThat(result.getResponse().getContentAsString()).isEqualTo(mapper.writeValueAsString(CategoriaResponse.from(categoria)));
+        assertThat(result.getResponse().getContentAsString())
+                .isEqualTo(mapper.writeValueAsString(CategoriaResponse.from(categoria)));
 
     }
 

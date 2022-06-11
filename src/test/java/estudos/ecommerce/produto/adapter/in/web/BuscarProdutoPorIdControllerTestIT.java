@@ -43,7 +43,9 @@ class BuscarProdutoPorIdControllerTestIT {
     @Test
     void deveriaListarProdutoComIdValidoERetornar200() throws Exception {
 
-        ResponseEntity<Produto> produtoBuscado = testRestTemplate.getForEntity("/ecommerce-api/produto/1", Produto.class);
+        ResponseEntity<Produto> produtoBuscado = testRestTemplate.getForEntity("/ecommerce-api/produto/1",
+                                                                               Produto.class);
+
         assertThat(produtoBuscado.getStatusCode()).isEqualTo(HttpStatus.OK);
 
         assertThat(produtoBuscado.getBody().getId()).isEqualTo(1L);

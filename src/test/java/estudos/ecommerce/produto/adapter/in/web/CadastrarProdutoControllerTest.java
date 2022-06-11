@@ -71,7 +71,10 @@ class CadastrarProdutoControllerTest {
 
         String url = "/ecommerce-api/produto/cadastrar";
 
-        ProdutoRequest request = new ProdutoRequest("", "smartphone", new BigDecimal("1000"), "Informatica");
+        ProdutoRequest request = new ProdutoRequest("",
+                                                    "smartphone",
+                                                    new BigDecimal("1000"),
+                                                    "Informatica");
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post(url)
                                                                  .header("Content-Type", "application/json")
