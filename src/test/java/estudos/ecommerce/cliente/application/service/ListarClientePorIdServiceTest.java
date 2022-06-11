@@ -35,7 +35,7 @@ class ListarClientePorIdServiceTest {
     }
 
     @Test
-    void deveLançarExceptionaoListarClinteComIdInvalido(){
+    void deveLancarExceptionaoListarClinteComIdInvalido(){
 
         Long idCliente = 999999L;
 
