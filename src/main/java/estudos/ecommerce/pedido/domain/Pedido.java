@@ -1,6 +1,7 @@
 package estudos.ecommerce.pedido.domain;
 
 import estudos.ecommerce.cliente.domain.Cliente;
+import estudos.ecommerce.cliente.domain.Endereco;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,6 +24,7 @@ public class Pedido {
     @Column(name = "valor_total")
     private BigDecimal valorTotal;
     private LocalDate dataFechamento = LocalDate.now();
+    @Embedded private Endereco enderecoEntrega;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;

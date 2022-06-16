@@ -31,9 +31,13 @@ public class AdicionaProdutoNoCarrinhoService implements AdicionaProdutoNoCarrin
         if (carrinhoBuscado.isPresent()) {
 
 
-            ItemDoCarrinho itemDoCarrinho = buscaItemDoCarrinhoUseCase.execute(carrinhoBuscado.get(), idProduto, quantidade);
+            ItemDoCarrinho itemDoCarrinho = buscaItemDoCarrinhoUseCase.execute(carrinhoBuscado.get(),
+                                                                               idProduto,
+                                                                               quantidade);
 
-            return adicionaProdutoEmUmCarrinhoExistenteService.adicionaProdutoEmCarrinhoExistente(carrinhoBuscado.get(), itemDoCarrinho, quantidade);
+            return adicionaProdutoEmUmCarrinhoExistenteService.adicionaProdutoEmCarrinhoExistente(carrinhoBuscado.get(),
+                                                                                                  itemDoCarrinho,
+                                                                                                  quantidade);
         }
 
         return adicionaProdutoEmUmNovoCarrinhoUseCase.execute(idCliente, idProduto, quantidade);

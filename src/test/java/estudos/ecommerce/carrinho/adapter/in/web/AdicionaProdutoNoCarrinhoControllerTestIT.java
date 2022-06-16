@@ -24,7 +24,7 @@ class AdicionaProdutoNoCarrinhoControllerTestIT {
     @Test
     void deveriaAdicionaProdutoNoCarrinhoEDevolverStatusCode201(){
 
-        CarrinhoRequest request =  new CarrinhoRequest(3L, 1L, 10);
+        CarrinhoRequest request =  new CarrinhoRequest(6L, 1L, 10);
         ResponseEntity<CarrinhoResponse> carrinhoResponseEntity =
                 testRestTemplate.postForEntity("/ecommerce-api/carrinho/adicionar-produto",
                                                request, CarrinhoResponse.class);

@@ -24,6 +24,7 @@ public class CriaNovoItemCarrinhoService implements CriaNovoItemCarrinhoUseCase 
     public ItemDoCarrinho criaNovoItemDoCarrinho(Long idProduto, Integer quantidade, Carrinho carrinho) {
 
         Produto produtoBuscado = findProdutoByIdPort.findProdutoById(idProduto);
+
         ItemDoCarrinho novoItem = new ItemDoCarrinho(produtoBuscado, quantidade, carrinho);
 
         return saveItemCarrinhoPort.salvaItemNoCarrinho(novoItem);
