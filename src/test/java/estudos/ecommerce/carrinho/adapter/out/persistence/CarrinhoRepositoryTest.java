@@ -20,7 +20,7 @@ class CarrinhoRepositoryTest {
 
     @Test
     void deveriaListarCarrinhoPeloIdDoCliente(){
-        Long idCliente = 1L;
+        Long idCliente = 6L;
 
         Optional<Carrinho> carrinho = carrinhoRepository.findByIdCliente(idCliente);
 
