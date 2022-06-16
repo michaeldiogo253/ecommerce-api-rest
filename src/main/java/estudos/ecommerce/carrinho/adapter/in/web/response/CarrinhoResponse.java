@@ -14,7 +14,7 @@ public class CarrinhoResponse {
     String nomeCliente;
     List<ItemDoCarrinhoResponse> itens;
     BigDecimal total;
-    Integer quantidadeItens;
+    Integer quantidadeTotalDeItens;
 
     public static CarrinhoResponse from(Carrinho carrinho) {
 
