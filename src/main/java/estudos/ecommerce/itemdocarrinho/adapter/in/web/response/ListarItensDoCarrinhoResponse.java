@@ -12,7 +12,7 @@ public class ListarItensDoCarrinhoResponse {
     Long idCarrinho;
     String nomeCliente;
     BigDecimal total;
-    Integer quantidadeDeItens;
+    Integer quantidadeTotalDeItens;
     List<ItemDoCarrinhoResponse> itensDoCarrinhoResponse;
 
 }
