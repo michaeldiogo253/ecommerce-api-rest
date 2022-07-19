@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -24,7 +25,7 @@ public class ClienteRequest {
 
     @NotBlank(message = "Campo dataNascimento é obrigatorio") private String dataNasc;
 
-    @NotBlank(message = "Endereco é Obrigatorio")
+    @NotNull(message = "Endereco é Obrigatorio")
     EnderecoRequest enderecoRequest;
 
     public Cliente toModel() {
