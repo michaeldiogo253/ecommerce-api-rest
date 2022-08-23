@@ -16,10 +16,8 @@ import java.time.LocalDate;
 @Embeddable
 public class DadosPessoais {
 
-    @Column(unique = true)
-    private String nome;
-    @Column(unique = true)
-    private String cpf;
+    @Column(unique = true) private String nome;
+    @Column(unique = true) private String cpf;
     private String telefone;
     private LocalDate dataNasc;
 }
