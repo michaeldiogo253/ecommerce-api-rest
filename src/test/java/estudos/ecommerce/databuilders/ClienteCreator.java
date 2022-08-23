@@ -17,12 +17,11 @@ public class ClienteCreator {
 
     public static Cliente gerarUmCliente(String nome, String telefone, String cpf, LocalDate dataNasc) {
 
-        return new Cliente(nome, telefone, cpf, dataNasc,new Endereco("Rua A",
-                                                                      "10",
-                                                                      "Brasil",
-                                                                      "Brasil",
-                                                                      "37775000",
-                                                                      "casa") );
+        return new Cliente(nome,
+                           telefone,
+                           cpf,
+                           dataNasc,
+                           new Endereco("Rua A", "10", "Brasil", "Brasil", "37775000", "casa"), null);
     }
 
     public static List<Cliente> geraClientes(int quantidade) {
@@ -39,11 +38,7 @@ public class ClienteCreator {
                            String.valueOf(new Random().nextInt()),
                            String.valueOf(faker.phoneNumber()),
                            LocalDate.now(),
-                           new Endereco("Rua A",
-                                        "10",
-                                        "Brasil",
-                                        "Brasil",
-                                        "37775000",
-                                        "casa"));
+                           new Endereco("Rua A", "10", "Brasil", "Brasil", "37775000", "casa"),
+                           null);
     }
 }
