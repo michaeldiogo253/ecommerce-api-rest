@@ -20,7 +20,7 @@ public class CarrinhoResponse {
 
         return new CarrinhoResponse(carrinho.getId(),
                                     carrinho.getNomeCliente(),
-                                    ItemDoCarrinhoResponse.of(carrinho.getCarrinho()),
+                                    ItemDoCarrinhoResponse.of(carrinho.getItemDoCarrinhos()),
                                     carrinho.getTotal(),
                                     carrinho.getQuantidadeDeItensDoCarrinho());
     }
