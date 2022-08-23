@@ -30,6 +30,7 @@ public class CadastrarClienteController {
                                                             UriComponentsBuilder uriBuilder) {
 
         Cliente clienteCriado = useCase.execute(request.toModel());
+
         URI uri = uriBuilder.path("ecommerce-api/cliente/{id}")
                             .buildAndExpand(clienteCriado.getId())
                             .toUri();
