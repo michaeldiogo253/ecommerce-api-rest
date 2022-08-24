@@ -23,7 +23,7 @@ public class CadastrarClienteService implements CadastrarClienteUseCase {
     @Override
     public Cliente execute(Cliente cliente) {
 
-        Perfil perfil = perfilRepository.findByNome("CLIENTE")
+        Perfil perfil = perfilRepository.findByNome("ROLE_CLIENTE")
                                         .orElse(null);
 
         usuarioRepository.save(cliente.getUsuario());
