@@ -25,7 +25,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 
     @Autowired UsuarioRepository usuarioRepository;
 
-    @Override @Bean
+    @Override
+    @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
 
         return super.authenticationManager();
@@ -47,8 +48,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
             .permitAll()
             .antMatchers(HttpMethod.POST, "/login")
             .permitAll()
-            .antMatchers(HttpMethod.POST, "/ecommerce-api/cliente/cadastrar")
+            .antMatchers(HttpMethod.POST, "/ecommerce-api/admin/cliente/cadastrar")
             .permitAll()
+            .antMatchers("/ecommerce-api/admin/**")
+            .hasRole("ADMIN")
             .anyRequest()
             .authenticated()
             .and()
