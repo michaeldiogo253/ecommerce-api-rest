@@ -20,7 +20,7 @@ public class AlterarCategoriaController {
 
     private final AlterarCategoriaUseCase alterarCategoriaUseCase;
 
-    @PutMapping("/ecommerce-api/categoria/atualizar")
+    @PutMapping("/ecommerce-api/admin/categoria/atualizar")
     public ResponseEntity<CategoriaResponse> alterarCategoria(@RequestBody @Valid AlterarCategoriaRequest request,
                                                               UriComponentsBuilder uriBuilder){
 

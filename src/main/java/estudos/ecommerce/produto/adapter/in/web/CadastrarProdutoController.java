@@ -18,7 +18,7 @@ import java.net.URI;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@RequestMapping("/ecommerce-api/produto")
+@RequestMapping("/ecommerce-api/admin/produto")
 public class CadastrarProdutoController {
 
     private final CadastrarProdutoUseCase cadastrarProdutoUseCase;

@@ -14,7 +14,7 @@ public class DeletarCategoriaController {
 
     private final DeletarCategoriaByIdUseCase deletarCategoriaByIdUseCase;
 
-    @DeleteMapping("/ecommerce-api/categoria/deletar/{idCategoria}")
+    @DeleteMapping("/ecommerce-api/admin/categoria/deletar/{idCategoria}")
     public ResponseEntity<Void> deletarCategoriaPorId(@PathVariable Long idCategoria) {
 
         deletarCategoriaByIdUseCase.execute(idCategoria);

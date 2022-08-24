@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@RequestMapping("/ecommerce-api/cliente")
+@RequestMapping("/ecommerce-api/admin/cliente")
 public class DeletarClientePorIdController {
 
     private final DeletarClientePorIdUseCase deletarClientePorIdUseCase;

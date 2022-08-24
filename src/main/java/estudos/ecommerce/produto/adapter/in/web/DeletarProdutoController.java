@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@RequestMapping("/ecommerce-api/produto")
+@RequestMapping("/ecommerce-api/admin/produto")
 public class DeletarProdutoController {
 
     private final DeletarProdutoService deletarProdutoService;
