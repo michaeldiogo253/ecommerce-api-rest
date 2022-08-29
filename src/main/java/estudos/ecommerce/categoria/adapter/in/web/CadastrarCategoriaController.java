@@ -21,7 +21,7 @@ public class CadastrarCategoriaController {
 
     private final SaveCategoriaUseCase saveCategoriaUseCase;
 
-    @PostMapping("/ecommerce-api/categoria/cadastrar")
+    @PostMapping("/ecommerce-api/admin/categoria/cadastrar")
     public ResponseEntity<CategoriaResponse> cadastrarCategoria(@RequestBody @Valid CategoriaRequest request,
                                                                 UriComponentsBuilder uriBuilder) {
 

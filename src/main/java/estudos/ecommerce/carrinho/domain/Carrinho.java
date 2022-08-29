@@ -22,7 +22,7 @@ public class Carrinho {
     @OneToOne private Cliente cliente;
 
     @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemDoCarrinho> carrinho = new ArrayList<>();
+    private List<ItemDoCarrinho> itemDoCarrinhos = new ArrayList<>();
 
     private BigDecimal total = new BigDecimal(0);
 
@@ -35,13 +35,13 @@ public class Carrinho {
 
     public void adicionaItemNoCarrinho(ItemDoCarrinho item, Integer quantidade) {
 
-        carrinho.stream()
-                .filter(itemDoCarrinho -> item.getProdutoId()
+        itemDoCarrinhos.stream()
+                       .filter(itemDoCarrinho -> item.getProdutoId()
                                               .equals(itemDoCarrinho.getProdutoId()))
-                .findFirst()
-                .ifPresentOrElse(produto -> carrinho.get(carrinho.indexOf(produto))
-                                                    .aumentaQuantidade(quantidade), () -> {
-                    carrinho.add(item);
+                       .findFirst()
+                       .ifPresentOrElse(produto -> itemDoCarrinhos.get(itemDoCarrinhos.indexOf(produto))
+                                                                  .aumentaQuantidade(quantidade), () -> {
+                    itemDoCarrinhos.add(item);
                 });
 
         atualizaTotaisDoCarrinho();
@@ -49,23 +49,23 @@ public class Carrinho {
 
     public void removeItemDoCarrinho(ItemDoCarrinho item) {
 
-        carrinho.removeIf(itemDoCarrinho -> itemDoCarrinho.equals(item));
+        itemDoCarrinhos.removeIf(itemDoCarrinho -> itemDoCarrinho.equals(item));
     }
 
     public void atualizaTotaisDoCarrinho() {
 
-        total = carrinho.stream()
-                        .map(ItemDoCarrinho::getValorTotalDosItens)
-                        .reduce(BigDecimal.ZERO, BigDecimal::add);
+        total = itemDoCarrinhos.stream()
+                               .map(ItemDoCarrinho::getValorTotalDosItens)
+                               .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        this.quantidadeTotalItensCarrinho = carrinho.stream()
-                                                    .map(ItemDoCarrinho::getQuantidade)
-                                                    .reduce(0, Integer::sum);
+        this.quantidadeTotalItensCarrinho = itemDoCarrinhos.stream()
+                                                           .map(ItemDoCarrinho::getQuantidade)
+                                                           .reduce(0, Integer::sum);
 
     }
 
     public boolean carrinhoIsVazio(){
-        return carrinho.isEmpty();
+        return itemDoCarrinhos.isEmpty();
     }
 
     public String getNomeCliente(){
@@ -73,6 +73,6 @@ public class Carrinho {
     }
 
     public Integer getQuantidadeDeItensDoCarrinho(){
-        return this.carrinho.size();
+        return this.itemDoCarrinhos.size();
     }
 }

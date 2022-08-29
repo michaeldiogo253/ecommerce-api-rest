@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping(path = "/ecommerce-api/produto")
+@RequestMapping(path = "/ecommerce-api/admin/produto")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AtualizarProdutoController {
 

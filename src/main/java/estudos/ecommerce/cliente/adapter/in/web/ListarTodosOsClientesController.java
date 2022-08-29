@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@RequestMapping("/ecommerce-api/cliente")
+@RequestMapping("/ecommerce-api/admin/cliente")
 public class ListarTodosOsClientesController {
 
     private final ListarTodosOsClientesUseCase listarTodosOsClientesUseCase;

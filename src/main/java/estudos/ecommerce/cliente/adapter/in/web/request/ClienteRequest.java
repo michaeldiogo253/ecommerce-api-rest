@@ -2,6 +2,7 @@ package estudos.ecommerce.cliente.adapter.in.web.request;
 
 import estudos.ecommerce.cliente.domain.Cliente;
 import estudos.ecommerce.cliente.domain.DadosPessoais;
+import estudos.ecommerce.usuario.request.UsuarioRequest;
 import estudos.ecommerce.util.data.ConversorDeDatas;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +26,9 @@ public class ClienteRequest {
 
     @NotBlank(message = "Campo dataNascimento é obrigatorio") private String dataNasc;
 
-    @NotNull(message = "Endereco é Obrigatorio")
+    @NotNull(message = "Usuario Request é obrigatorio!") private UsuarioRequest usuarioRequest;
+
+    @NotNull(message = "Endereco é obrigatorio")
     EnderecoRequest enderecoRequest;
 
     public Cliente toModel() {
@@ -34,7 +37,8 @@ public class ClienteRequest {
                            this.getCpf(),
                            this.getTelefone(),
                            ConversorDeDatas.converteDataStringParaLocalDate(this.dataNasc),
-                           enderecoRequest.toModel());
+                           enderecoRequest.toModel(),
+                           usuarioRequest.toModel());
     }
 
     public DadosPessoais toDadosPessoais(ClienteRequest request) {

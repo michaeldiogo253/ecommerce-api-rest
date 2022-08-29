@@ -1,5 +1,7 @@
 package estudos.ecommerce.cliente.domain;
 
+import estudos.ecommerce.usuario.domain.Perfil;
+import estudos.ecommerce.usuario.domain.Usuario;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,10 +22,13 @@ public class Cliente {
 
     @Embedded private Endereco endereco;
 
-    public Cliente(String nome, String cpf, String telefone, LocalDate dataNasc, Endereco endereco) {
+    @OneToOne(cascade = CascadeType.REMOVE) private Usuario usuario;
+
+    public Cliente(String nome, String cpf, String telefone, LocalDate dataNasc, Endereco endereco, Usuario usuario) {
 
         this.dadosPessoais = new DadosPessoais(nome, cpf, telefone, dataNasc);
         this.endereco = endereco;
+        this.usuario = usuario;
     }
 
     @Override
@@ -37,20 +42,6 @@ public class Cliente {
         return this.dadosPessoais.getNome();
     }
 
-    public String getCpf() {
-
-        return this.dadosPessoais.getCpf();
-    }
-
-    public String getTelefone() {
-
-        return this.dadosPessoais.getTelefone();
-    }
-
-    public LocalDate getDataNascimento() {
-
-        return this.dadosPessoais.getDataNasc();
-    }
 
     public String getDataNascimentoString() {
 
@@ -66,9 +57,15 @@ public class Cliente {
         this.dadosPessoais.setDataNasc(dadosPessoaisASerAtualizado.getDataNasc());
     }
 
-    public void atualizaEndereco(Endereco endereco){
-        this.getEndereco().atualizaEndereco(endereco);
+    public void atualizaEndereco(Endereco endereco) {
 
+        this.getEndereco()
+            .atualizaEndereco(endereco);
+
+    }
+
+    public void atribuiPerfil(Perfil perfil){
+        usuario.atribuiPerfil(perfil);
     }
 
 }
